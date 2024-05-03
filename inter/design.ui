@@ -30,13 +30,32 @@
       <height>581</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>801</width>
+      <height>581</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>801</width>
+      <height>581</height>
+     </size>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #2D3250;</string>
+     <string notr="true">background-color: #2D3250;
+border: none;</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="home">
+     <property name="styleSheet">
+      <string notr="true">border: none;</string>
+     </property>
      <attribute name="title">
       <string>Home</string>
      </attribute>
@@ -56,9 +75,9 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>10</y>
+         <y>60</y>
          <width>751</width>
-         <height>421</height>
+         <height>371</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -75,12 +94,12 @@ border: 1px solid #424769;</string>
           <x>0</x>
           <y>0</y>
           <width>749</width>
-          <height>419</height>
+          <height>369</height>
          </rect>
         </property>
        </widget>
       </widget>
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="message">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -94,8 +113,11 @@ border: 1px solid #424769;</string>
 background-color: #424769;
 color: #FFFFFF;</string>
        </property>
+       <property name="placeholderText">
+        <string>Message ChatGPT</string>
+       </property>
       </widget>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnSend">
        <property name="geometry">
         <rect>
          <x>690</x>
@@ -104,6 +126,9 @@ color: #FFFFFF;</string>
          <height>91</height>
         </rect>
        </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(85, 170, 127);
 color: rgb(255, 255, 255);
@@ -111,6 +136,23 @@ border-radius: 8px;</string>
        </property>
        <property name="text">
         <string>Enviar</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>20</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #FFF;
+font-size: 18px;</string>
+       </property>
+       <property name="text">
+        <string>ChatGPT 3.5</string>
        </property>
       </widget>
      </widget>
@@ -202,7 +244,7 @@ font-size: 12px;</string>
        <string>API Key:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
+     <widget class="QLineEdit" name="mode">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -244,7 +286,7 @@ font-size: 12px;</string>
        <string>GPT Model:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="apiKey_2">
+     <widget class="QLineEdit" name="url">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -286,7 +328,7 @@ font-size: 12px;</string>
        <string>URL:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="btnSave">
       <property name="geometry">
        <rect>
         <x>674</x>
@@ -294,6 +336,9 @@ font-size: 12px;</string>
         <width>81</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: #55AA7F;
@@ -304,10 +349,81 @@ color: #FFF;</string>
        <string>Save</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>440</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #FFF;
+font-size: 12px;</string>
+      </property>
+      <property name="text">
+       <string>Developed: Fábio Carvalho</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>480</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #FFF;
+font-size: 12px;</string>
+      </property>
+      <property name="text">
+       <string>TikTok: @ofabioacarvalho</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>520</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #FFF;
+font-size: 12px;</string>
+      </property>
+      <property name="text">
+       <string>Créditos: OpenAI</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnLoad">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>340</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #676F9D;
+border-radius: 8px;
+color: #FFF;</string>
+      </property>
+      <property name="text">
+       <string>Load</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
