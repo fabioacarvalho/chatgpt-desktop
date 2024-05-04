@@ -23,16 +23,20 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(807, 580)
+        MainWindow.setMinimumSize(QSize(807, 580))
+        MainWindow.setMaximumSize(QSize(807, 580))
         icon = QIcon()
         icon.addFile(u"../../../../Downloads/DALL-E.jpg", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"background-color: #2D3250;")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setMinimumSize(QSize(807, 580))
+        self.centralwidget.setMaximumSize(QSize(807, 580))
         self.tabWidget = QTabWidget(self.centralwidget)
         self.tabWidget.setObjectName(u"tabWidget")
-        self.tabWidget.setGeometry(QRect(0, 0, 801, 581))
+        self.tabWidget.setGeometry(QRect(10, 0, 801, 581))
         self.tabWidget.setMinimumSize(QSize(801, 581))
         self.tabWidget.setMaximumSize(QSize(801, 581))
         self.tabWidget.setCursor(QCursor(Qt.PointingHandCursor))
@@ -60,7 +64,8 @@ class Ui_MainWindow(object):
         self.message.setGeometry(QRect(10, 440, 671, 91))
         self.message.setStyleSheet(u"border-radius: 8px;\n"
 "background-color: #424769;\n"
-"color: #FFFFFF;")
+"color: #FFFFFF;\n"
+"padding: 10px;")
         self.btnSend = QPushButton(self.groupBox)
         self.btnSend.setObjectName(u"btnSend")
         self.btnSend.setGeometry(QRect(690, 442, 75, 91))
@@ -68,11 +73,24 @@ class Ui_MainWindow(object):
         self.btnSend.setStyleSheet(u"background-color: rgb(85, 170, 127);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 8px;")
+        icon1 = QIcon()
+        icon1.addFile(u"../../../../Downloads/paper-plane.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btnSend.setIcon(icon1)
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(330, 20, 111, 21))
         self.label_6.setStyleSheet(u"color: #FFF;\n"
 "font-size: 18px;")
+        self.btnNewChat = QPushButton(self.groupBox)
+        self.btnNewChat.setObjectName(u"btnNewChat")
+        self.btnNewChat.setGeometry(QRect(664, 10, 91, 31))
+        self.btnNewChat.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btnNewChat.setStyleSheet(u"border: 2px solid #424769;\n"
+"border-radius: 8px;\n"
+"color: #FFF;")
+        icon2 = QIcon()
+        icon2.addFile(u"../../../../Downloads/edit (1).png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btnNewChat.setIcon(icon2)
         self.tabWidget.addTab(self.home, "")
         self.settings = QWidget()
         self.settings.setObjectName(u"settings")
@@ -135,39 +153,67 @@ class Ui_MainWindow(object):
 "font-size: 12px;")
         self.btnSave = QPushButton(self.settings)
         self.btnSave.setObjectName(u"btnSave")
-        self.btnSave.setGeometry(QRect(674, 340, 81, 41))
+        self.btnSave.setGeometry(QRect(674, 500, 81, 41))
         self.btnSave.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnSave.setStyleSheet(u"background-color: #55AA7F;\n"
 "border-radius: 8px;\n"
 "color: #FFF;")
         self.label_7 = QLabel(self.settings)
         self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(40, 440, 161, 31))
+        self.label_7.setGeometry(QRect(40, 510, 161, 31))
         self.label_7.setStyleSheet(u"color: #FFF;\n"
 "font-size: 12px;")
         self.label_8 = QLabel(self.settings)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(40, 480, 161, 31))
+        self.label_8.setGeometry(QRect(220, 510, 161, 31))
         self.label_8.setStyleSheet(u"color: #FFF;\n"
 "font-size: 12px;")
         self.label_9 = QLabel(self.settings)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setGeometry(QRect(40, 520, 161, 31))
+        self.label_9.setGeometry(QRect(400, 510, 111, 31))
         self.label_9.setStyleSheet(u"color: #FFF;\n"
 "font-size: 12px;")
         self.btnLoad = QPushButton(self.settings)
         self.btnLoad.setObjectName(u"btnLoad")
-        self.btnLoad.setGeometry(QRect(580, 340, 81, 41))
+        self.btnLoad.setGeometry(QRect(580, 500, 81, 41))
         self.btnLoad.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnLoad.setStyleSheet(u"background-color: #676F9D;\n"
 "border-radius: 8px;\n"
 "color: #FFF;")
+        self.label_10 = QLabel(self.settings)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(40, 320, 51, 31))
+        self.label_10.setStyleSheet(u"color: #FFF;\n"
+"font-size: 12px;")
+        self.url_2 = QLineEdit(self.settings)
+        self.url_2.setObjectName(u"url_2")
+        self.url_2.setEnabled(False)
+        self.url_2.setGeometry(QRect(110, 320, 651, 31))
+        self.url_2.setStyleSheet(u"color: #FFF;\n"
+"border: 2px solid #424769;\n"
+"border-radius: 8px;\n"
+"padding-left: 10px;")
+        self.url_2.setReadOnly(True)
+        self.url_3 = QLineEdit(self.settings)
+        self.url_3.setObjectName(u"url_3")
+        self.url_3.setEnabled(False)
+        self.url_3.setGeometry(QRect(110, 380, 651, 31))
+        self.url_3.setStyleSheet(u"color: #FFF;\n"
+"border: 2px solid #424769;\n"
+"border-radius: 8px;\n"
+"padding-left: 10px;")
+        self.url_3.setReadOnly(True)
+        self.label_11 = QLabel(self.settings)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(40, 380, 51, 31))
+        self.label_11.setStyleSheet(u"color: #FFF;\n"
+"font-size: 12px;")
         self.tabWidget.addTab(self.settings, "")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -177,8 +223,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"ChatGPT", None))
         self.groupBox.setTitle("")
         self.message.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Message ChatGPT", None))
-        self.btnSend.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
+        self.btnSend.setText("")
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"ChatGPT 3.5", None))
+        self.btnNewChat.setText(QCoreApplication.translate("MainWindow", u"New Chat", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.home), QCoreApplication.translate("MainWindow", u"Home", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Name:", None))
@@ -192,6 +239,10 @@ class Ui_MainWindow(object):
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"TikTok: @ofabioacarvalho", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Cr\u00e9ditos: OpenAI", None))
         self.btnLoad.setText(QCoreApplication.translate("MainWindow", u"Load", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Tokens:", None))
+        self.url_2.setText(QCoreApplication.translate("MainWindow", u"4096", None))
+        self.url_3.setText(QCoreApplication.translate("MainWindow", u"1", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Temp:", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.settings), QCoreApplication.translate("MainWindow", u"Settings", None))
     # retranslateUi
 
