@@ -7,6 +7,7 @@ from config import request_chat
 import asyncio
 
 class Main(QMainWindow, Ui_MainWindow):
+    _clear_history = False
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -15,6 +16,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.btnSave.clicked.connect(self.save_config)
         self.btnLoad.clicked.connect(self.load_config)
         self.btnSend.clicked.connect(self.send_message)
+        self.btnNewChat.clicked.connect(self.new_chat)
 
         try:
             self.load_file()
@@ -42,7 +44,10 @@ class Main(QMainWindow, Ui_MainWindow):
         content = self.message.toPlainText()
         if content:
             self.create_block_message(content, True)
-
+        
+        # restaurando estado original
+        if self._clear_history:
+            self._clear_history = False
 
     def create_message(self, msg, who):
         # Criando uma label para representar a mensagem
@@ -66,7 +71,7 @@ class Main(QMainWindow, Ui_MainWindow):
             
 
     def process_user_request(self, msg):
-        response = request_chat(msg)
+        response = request_chat(msg, self._clear_history)
         if response:
             self.create_block_message(str(response), False)
 
@@ -78,6 +83,14 @@ class Main(QMainWindow, Ui_MainWindow):
         message_box.exec()
         return
 
+
+    def new_chat(self):
+        # Limpa o layout removendo todos os widgets filhos
+        for i in reversed(range(self.layout_mensagens.count())):
+            widget = self.layout_mensagens.itemAt(i).widget()
+            if widget:
+                widget.setParent(None)
+        self._clear_history = True
 
     def save_config(self):
         with open('configs.txt', "w") as file:
