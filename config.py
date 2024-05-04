@@ -4,14 +4,15 @@ import openai
 
 conversation_history = []
 
-def request_chat(message):
+
+def request_chat(message, clear_history=False):
 
     if message:
         with open("configs.txt") as file:
             client = OpenAI(
                 api_key=file.readline().split(",")[0],
             )
-            arr_history = [{"role": "user", "content": msg['content']} for msg in conversation_history]
+            arr_history = [{"role": "user", "content": msg['content']} for msg in conversation_history] if not clear_history else []
 
             print(f"arr_history: {arr_history}")
 
@@ -27,3 +28,5 @@ def request_chat(message):
               conversation_history.append({"role": "assistant", "content": response.content})
 
             return response.content
+
+
