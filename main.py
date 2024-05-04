@@ -3,6 +3,8 @@ from inter.design import *
 from PySide6.QtWidgets import QMainWindow, QApplication, QMessageBox, QVBoxLayout
 import sys
 import markdown2
+from config import request_chat
+import asyncio
 
 class Main(QMainWindow, Ui_MainWindow):
 
@@ -36,25 +38,34 @@ class Main(QMainWindow, Ui_MainWindow):
         self.scrollArea.setWidgetResizable(True)
 
 
-    def send_message(self):
+    def send_message(self, who=True):
         content = self.message.toPlainText()
         if content:
-            self.create_block_message(content)
+            self.create_block_message(content, True)
 
 
-    def create_message(self, value):
+    def create_message(self, msg, who):
         # Criando uma label para representar a mensagem
-        who = self.name.text() if self.name.text() else "You"
-        message_converted = self.convert_to_markdown(value)
-        message = QLabel(f"You: {message_converted}")
+        message_converted = self.convert_to_markdown(msg)
+        text_message = f"You: {message_converted}" if who else f"ChatGPT: {message_converted}"
+        message = QLabel(text_message)
         message.setWordWrap(True)
         return message
-    
 
-    def create_block_message(self, msg):
+    def create_block_message(self, msg, who):
         # Criando uma mensagem
-        mensagem = self.create_message(msg)
+        mensagem = self.create_message(msg, who)
         self.layout_mensagens.addWidget(mensagem)
+        self.message.setText("")
+
+        if who:
+            self.process_user_request(str(msg))
+            
+
+    def process_user_request(self, msg):
+        response = request_chat(msg)
+        if response:
+            self.create_block_message(str(response), False)
 
 
     def show_message(self, msg):
@@ -63,6 +74,7 @@ class Main(QMainWindow, Ui_MainWindow):
         message_box.setText(msg)
         message_box.exec()
         return
+
 
     def save_config(self):
         with open('configs.txt', "w") as file:
@@ -77,6 +89,7 @@ class Main(QMainWindow, Ui_MainWindow):
             else:
                 self.show_message("Please set your 'Name' and 'API_Key'")
 
+
     def load_file(self):
         with open("configs.txt", "r") as file:
             if file:
@@ -84,6 +97,7 @@ class Main(QMainWindow, Ui_MainWindow):
                 if content:
                     self.apiKey.setText(str(content.split(',')[0]))
                     self.name.setText(str(content.split(',')[2]))
+
 
     def load_config(self):
         try:

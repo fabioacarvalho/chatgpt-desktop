@@ -10,6 +10,10 @@ Aplicativo Desktop para utilizar o chatGPT com sua API Key.
 
 <br>
 
+![alt text](image-3.png)
+
+<br>
+
 ![alt text](image-1.png)
 
 ## Executável (Windows)
