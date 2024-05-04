@@ -49,6 +49,9 @@ class Main(QMainWindow, Ui_MainWindow):
         message_converted = self.convert_to_markdown(msg)
         text_message = f"You: {message_converted}" if who else f"ChatGPT: {message_converted}"
         message = QLabel(text_message)
+        message.setStyleSheet("padding: 10px;")
+        if not who:
+            message.setStyleSheet("background-color: #424769; padding: 10px;")
         message.setWordWrap(True)
         return message
 

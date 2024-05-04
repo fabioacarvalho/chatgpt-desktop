@@ -2,19 +2,15 @@
 
 Aplicativo Desktop para utilizar o chatGPT com sua API Key.
 
-![alt text](image.png)
+![alt text](assets/images/image.png)
 
 <br>
 
-![alt text](image-2.png)
+![alt text](assets/images/chat.png)
 
 <br>
 
-![alt text](image-3.png)
-
-<br>
-
-![alt text](image-1.png)
+![alt text](assets/images/settings.png)
 
 ## Executável (Windows)
 
