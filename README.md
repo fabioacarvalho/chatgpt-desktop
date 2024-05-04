@@ -14,7 +14,14 @@ Aplicativo Desktop para utilizar o chatGPT com sua API Key.
 
 ## Executável (Windows)
 
-Entre na pasta `dist` e baixe o arquivo `main.exe`, após isso só ir até o local de downlaod e executar.
+Entre na pasta `app` e baixe o arquivo `My-Personal-GPT.exe`, após isso só ir até o local de downlaod e executar.
+
+### Definindo configurações do App
+
+Crie sua conta na [OpenAI](https://openai.com/) e crie uma API-Key.
+
+Feito isso basta adicionar no settings da aplicação sua API-Key.
+
 
 ## Instalação
 Rode o comando abaixo para instalar as bibliotecas:
